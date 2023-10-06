@@ -1,6 +1,6 @@
 {:paths ["src"]
  :deps
- {com.fooheads/skepnad                      {:mvn/version "0.1.0"}
+ {com.fooheads/skepnad                      {:mvn/version "0.1.1"}
   lambdaisland/deep-diff2                   {:mvn/version "2.4.138"}}
 
  :aliases
