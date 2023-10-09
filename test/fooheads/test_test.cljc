@@ -1,7 +1,7 @@
 (ns fooheads.test-test
   (:require
     [clojure.test :refer [deftest is testing]]
-    [fooheads.test :refer [thrown-ex-data]]))
+    [fooheads.test :refer [reduce-are thrown-ex-data]]))
 
 
 (defn problem-function [x y]
@@ -26,4 +26,31 @@
            (thrown-ex-data
              [:msg :x]
              (identity 6))))))
+
+
+(deftest reduce-are-test
+  (reduce-are
+    1
+    2 inc
+    3 inc)
+
+  (reduce-are
+    [1]
+
+    2 inc
+    3 inc)
+
+  (reduce-are
+    [1 parse-long]
+
+    "2"  inc
+    "13" [inc #(+ 10 %)]
+    "12" dec)
+
+  (reduce-are
+    [1 identity str]
+
+    "2"  inc
+    "13" [inc #(+ 10 %)]
+    "12" dec))
 
